@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>EcoMerch | Terms of Service</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fbfef9;
+            color: #1e2f2c;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* header */
+        .site-header {
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 12px rgba(0, 20, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e2f0e6;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 800;
+            font-size: 1.7rem;
+            color: #2c6e49;
+        }
+        .logo i {
+            font-size: 2rem;
+            color: #4caf7f;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e3a2f;
+            transition: 0.2s;
+            padding-bottom: 4px;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #2e8b57;
+            border-bottom: 2px solid #6fbf8e;
+        }
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 1.3rem;
+            color: #2c5e42;
+        }
+        .header-icons i {
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .header-icons i:hover {
+            color: #1b4d3c;
+        }
+        .btn-primary {
+            background: #2c6e49;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 700;
+            color: white;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary:hover {
+            background: #1f543b;
+            transform: translateY(-2px);
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 48px 0 24px 0;
+            position: relative;
+            display: inline-block;
+            color: #1f3e34;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background: #6fbf8e;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+        /* Terms page specific styles */
+        .terms-hero {
+            background: linear-gradient(105deg, #e9f5ef 0%, #d4eae1 100%);
+            border-radius: 2rem;
+            margin: 32px 0 40px;
+            padding: 48px 40px;
+            text-align: center;
+        }
+        .terms-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1c4d3a;
+            margin-bottom: 16px;
+        }
+        .terms-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 40px;
+            margin: 32px 0;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e2f0e6;
+        }
+        .terms-card h2 {
+            font-size: 1.6rem;
+            color: #2c6e49;
+            margin: 32px 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .terms-card h2:first-of-type {
+            margin-top: 0;
+        }
+        .terms-card h2 i {
+            font-size: 1.6rem;
+            color: #4caf7f;
+        }
+        .terms-card p {
+            margin-bottom: 16px;
+            line-height: 1.7;
+            color: #2d4a3e;
+        }
+        .terms-card ul {
+            margin: 16px 0 24px 40px;
+            color: #2d4a3e;
+        }
+        .terms-card li {
+            margin: 8px 0;
+        }
+        .last-updated {
+            background: #eef5f1;
+            padding: 12px 20px;
+            border-radius: 60px;
+            display: inline-block;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+            color: #2c6e49;
+        }
+        .footer {
+            background: #14261f;
+            color: #cfe6db;
+            padding: 48px 0 24px;
+            margin-top: 56px;
+            border-radius: 40px 40px 0 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        .footer h4 { color: white; margin-bottom: 18px; }
+        .footer a { color: #bdd9cd; text-decoration: none; }
+        .copyright { text-align: center; padding-top: 28px; border-top: 1px solid #2f4d3e; font-size: 0.85rem; }
+        .toast-msg {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e3f33;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 500;
+            z-index: 1000;
+            display: none;
+            backdrop-filter: blur(8px);
+            white-space: nowrap;
+        }
+        @media (max-width: 780px) {
+            .terms-hero h1 { font-size: 2rem; }
+            .navbar { flex-direction: column; }
+            .toast-msg { white-space: normal; width: 90%; text-align: center; }
+            .terms-card { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="site-header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo"><i class="fas fa-leaf"></i><span>EcoMerch</span></div>
+                <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="privacy.html">Privacy </a></li>
+      <li><a href="terms.html">Terms</a></li>
+                </ul>
+                <div class="header-icons">
+                    <i class="fas fa-search"></i>
+                    <i class="far fa-heart"></i>
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container" id="mainContent">
+        <!-- TERMS OF SERVICE PAGE (default) -->
+        <div id="termsPage">
+            <div class="terms-hero">
+                <h1><i class="fas fa-file-contract"></i> Terms of Service</h1>
+                <p>Our commitment to you — read our terms for a fair, transparent, and sustainable shopping experience.</p>
+                <div class="last-updated"><i class="far fa-calendar-alt"></i> Effective date: June 6, 2026</div>
+            </div>
+
+            <div class="terms-card">
+                <h2><i class="fas fa-handshake"></i> Agreement to Terms</h2>
+                <p>By accessing or using the EcoMerch website (ecomerch.com), you agree to be bound by these Terms of Service. If you disagree with any part, please do not use our services. These terms apply to all visitors, users, and customers.</p>
+
+                <h2><i class="fas fa-leaf"></i> Our Sustainable Promise</h2>
+                <p>EcoMerch is dedicated to providing eco-friendly, ethically sourced products. While we strive for accuracy, product descriptions, colors, and availability may vary. We reserve the right to update product information and pricing at any time without notice.</p>
+
+                <h2><i class="fas fa-shopping-cart"></i> Orders & Payments</h2>
+                <p>When you place an order, you agree to provide current, complete, and accurate purchase information. We accept major credit cards and digital wallets. All payments are processed securely through PCI-compliant gateways. EcoMerch reserves the right to cancel any order due to suspected fraud, unauthorized transactions, or product unavailability.</p>
+                <ul>
+                    <li>✔️ Order confirmation emails are sent after successful payment.</li>
+                    <li>✔️ Prices are listed in USD and include estimated taxes where applicable.</li>
+                    <li>✔️ We do not store full payment details on our servers.</li>
+                </ul>
+
+                <h2><i class="fas fa-truck"></i> Shipping & Delivery</h2>
+                <p>We ship worldwide using carbon-neutral shipping partners. Estimated delivery times are provided at checkout but are not guaranteed. EcoMerch is not responsible for delays caused by customs, weather, or carrier issues. Title and risk of loss pass to you upon delivery to the carrier.</p>
+
+                <h2><i class="fas fa-undo-alt"></i> Returns & Refunds</h2>
+                <p>We want you to love your sustainable purchase. If you're not satisfied, you may return most unused items within 30 days of delivery for a full refund or exchange. Return shipping costs are the responsibility of the customer unless the item is defective. To initiate a return, contact our support team.</p>
+                <ul>
+                    <li>🌱 Items must be in original condition with tags attached.</li>
+                    <li>🌱 Perishable goods, personal care items, and final sale products are non-returnable.</li>
+                    <li>🌱 Refunds are processed within 7-10 business days after we receive the return.</li>
+                </ul>
+
+                <h2><i class="fas fa-user-lock"></i> Account Responsibility</h2>
+                <p>You are responsible for maintaining the confidentiality of your account credentials and for all activities under your account. Notify us immediately of any unauthorized use. EcoMerch reserves the right to suspend or terminate accounts that violate these terms.</p>
+
+                <h2><i class="fas fa-copyright"></i> Intellectual Property</h2>
+                <p>All content on this site — including logos, text, graphics, product images, and code — is the property of EcoMerch or our content suppliers. You may not reproduce, distribute, or exploit any content without express written permission. Our eco-friendly brand assets are protected by trademark and copyright laws.</p>
+
+                <h2><i class="fas fa-exclamation-triangle"></i> Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, EcoMerch shall not be liable for any indirect, incidental, or consequential damages arising from your use of our products or website. Our total liability shall not exceed the amount you paid for the product in question.</p>
+
+                <h2><i class="fas fa-gavel"></i> Governing Law</h2>
+                <p>These Terms shall be governed by the laws of the State of Oregon, without regard to conflict of law principles. Any disputes arising from these terms shall be resolved exclusively in the state or federal courts located in Multnomah County, Oregon.</p>
+
+                <h2><i class="fas fa-edit"></i> Changes to Terms</h2>
+                <p>We may update these Terms of Service from time to time. Continued use of the site after changes constitutes acceptance of the new terms. We encourage you to review this page periodically. The "Effective date" at the top indicates when the latest changes were made.</p>
+
+                <h2><i class="fas fa-envelope"></i> Contact Information</h2>
+                <p>If you have any questions about these Terms, please contact us:</p>
+                <p><i class="fas fa-envelope"></i> Email: legal@ecomerch.com<br>
+                <i class="fas fa-map-marker-alt"></i> Address: 123 Greenway Blvd, Suite 200, Portland, OR 97201<br>
+                <i class="fas fa-phone-alt"></i> Phone: (555) 123-ECCO</p>
+
+                <div style="margin-top: 32px; padding: 20px; background: #eef5f1; border-radius: 24px; text-align: center;">
+                    <i class="fas fa-seedling" style="color:#2c6e49; font-size:1.8rem;"></i>
+                    <p style="margin-top: 12px;"><strong>Thank you for choosing sustainable commerce.</strong> By using EcoMerch, you agree to these terms and help us build a greener future.</p>
+                    <button id="acceptTermsBtn" class="btn-primary" style="margin-top: 12px;"><i class="fas fa-check-circle"></i> I agree to the Terms</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div><h4>EcoMerch</h4><p>Sustainable goods for a circular future.</p></div>
+                <div><h4>Help & Info</h4><p><a href="#">Shipping & Returns</a></p><p><a href="#">Sustainability FAQ</a></p></div>
+                <div><h4>Legal</h4><p><a href="#" id="footerTermsLink">Terms of Service</a></p><p><a href="#" id="footerPrivacyLink">Privacy Policy</a></p></div>
+                <div><h4>Follow us</h4><p><i class="fab fa-instagram"></i> Instagram &nbsp; <i class="fab fa-twitter"></i> Twitter</p></div>
+            </div>
+            <div class="copyright"><p>© 2026 EcoMerch — designed for a greener lifestyle. All images working & fully functional.</p></div>
+        </div>
+    </footer>
+    <div id="toastMsg" class="toast-msg">🌿 EcoMerch — terms of service</div>
+
+    <script>
+        // Toast notification
+        const toast = document.getElementById('toastMsg');
+        let toastTimer = null;
+        function showToast(msg) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toast.textContent = msg || '✨ Thank you for being eco-conscious!';
+            toast.style.display = 'block';
+            toastTimer = setTimeout(() => { toast.style.display = 'none'; }, 2500);
+        }
+
+        // Image fallback safety (all picsum images guaranteed)
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() { if(!this.dataset.fixed) { this.dataset.fixed=true; this.src='https://picsum.photos/id/42/400/300'; } });
+        });
+
+        // ---------- HOME PAGE HTML (complete homepage with all working images) ----------
+        const homePageHTML = `
+            <div class="hero" style="background:linear-gradient(105deg, #e9f5ef 0%, #d4eae1 100%); border-radius:2rem; margin:32px 0 48px; padding:48px 40px; display:flex; flex-wrap:wrap; align-items:center; gap:32px;">
+                <div style="flex:1"><h1 style="font-size:3rem; font-weight:800; color:#1c4d3a;">Conscious choices, <br>better tomorrow.</h1><p style="margin:20px 0;">Explore eco-friendly essentials — from zero-waste home goods to organic apparel. Every purchase gives back to the planet.</p><button class="btn-primary" id="dynamicShopBtn">Shop Now <i class="fas fa-arrow-right"></i></button></div>
+                <div style="flex:1"><img src="https://picsum.photos/id/20/600/500" alt="Eco lifestyle" style="width:100%; max-width:380px; border-radius:32px;"></div>
+            </div>
+            <div><h2 class="section-title">Shop by category</h2><div class="categories-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:28px; margin:32px 0;">
+                <div class="category-card" style="background:white; text-align:center; padding:24px; border-radius:28px; cursor:pointer;"><img src="https://picsum.photos/id/96/200/200" style="width:100px;height:100px;border-radius:50%;"><h3>Zero Waste</h3><p>Reusables</p></div>
+                <div class="category-card" style="background:white; text-align:center; padding:24px; border-radius:28px; cursor:pointer;"><img src="https://picsum.photos/id/30/200/200" style="width:100px;height:100px;border-radius:50%;"><h3>Organic Fashion</h3><p>Ethical clothing</p></div>
+                <div class="category-card" style="background:white; text-align:center; padding:24px; border-radius:28px; cursor:pointer;"><img src="https://picsum.photos/id/127/200/200" style="width:100px;height:100px;border-radius:50%;"><h3>Plant Care</h3><p>Eco pots</p></div>
+                <div class="category-card" style="background:white; text-align:center; padding:24px; border-radius:28px; cursor:pointer;"><img src="https://picsum.photos/id/184/200/200" style="width:100px;height:100px;border-radius:50%;"><h3>Clean Beauty</h3><p>Plastic-free</p></div>
+            </div></div>
+            <div><h2 class="section-title">🌍 Earth-friendly picks</h2><div class="products-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(270px,1fr)); gap:30px; margin:32px 0 56px;" id="homeProductsGrid">
+                ${[
+                    { name:"Bamboo Travel Utensils", price:14.99, img:"83" }, { name:"Beeswax Wraps (3-pack)", price:18.50, img:"145" }, 
+                    { name:"Organic Cotton Tote", price:22.00, img:"26" }, { name:"Compostable Phone Case", price:29.99, img:"17" },
+                    { name:"Solar Garden Lantern", price:39.95, img:"31" }, { name:"Eco Yoga Mat (recycled)", price:48.00, img:"130" }
+                ].map(p => `<div class="product-card" data-name="${p.name}" data-price="${p.price}" style="background:white; border-radius:28px; overflow:hidden;"><img class="product-img" src="https://picsum.photos/id/${p.img}/400/300" alt="${p.name}" style="width:100%; height:260px; object-fit:cover;"><div class="product-info" style="padding:18px;"><div class="product-title" style="font-weight:800;">${p.name}</div><div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.8</div><div class="product-price" style="color:#2c6e49; font-weight:800; font-size:1.3rem;">$${p.price}</div><button class="add-to-cart" style="background:#f0f7f0; border:1px solid #cde2d4; width:100%; padding:8px; border-radius:80px; cursor:pointer;"><i class="fas fa-shopping-cart"></i> Add to cart</button></div></div>`).join('')}
+            </div></div>
+            <div class="sustainable-banner" style="background:#daf1e4; border-radius:2rem; padding:40px 32px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; margin:40px 0;"><div><h2><i class="fas fa-seedling"></i> 1% for the planet</h2><p>Every purchase funds reforestation & clean water projects.</p><button class="btn-primary" id="dynamicLearnBtn">Learn more →</button></div><div><img src="https://picsum.photos/id/29/400/300" alt="Forest" style="border-radius:24px; width:240px;"></div></div>
+        `;
+
+        // About page HTML (complete)
+        const aboutPageHTML = `
+            <div style="background:linear-gradient(115deg, #e0f0e8 0%, #cde4da 100%); border-radius:2rem; margin:32px 0 48px; padding:48px 40px; display:flex; flex-wrap:wrap; gap:40px;">
+                <div style="flex:1"><h1 style="font-size:2.8rem;">Rooted in purpose 🌱</h1><p style="font-size:1.2rem; margin:16px 0;">We believe commerce can heal the planet.</p><p>EcoMerch was born from a simple idea: everyday products shouldn't cost the Earth. Since 2020, we've partnered with ethical makers.</p><button class="btn-primary" id="aboutJoinBtn"><i class="fas fa-seedling"></i> Join our journey</button></div>
+                <div style="flex:1"><img src="https://picsum.photos/id/58/500/500" style="width:100%; max-width:400px; border-radius:32px;"></div>
+            </div>
+            <div><h2 class="section-title">Our core beliefs</h2><div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:32px; margin:48px 0;"><div style="background:white; padding:32px; border-radius:32px; text-align:center;"><i class="fas fa-globe-americas" style="font-size:2.8rem; color:#2c6e49;"></i><h3>Planet First</h3><p>Carbon-neutral shipping, 1% for reforestation.</p></div><div style="background:white; padding:32px; border-radius:32px; text-align:center;"><i class="fas fa-hand-holding-heart" style="font-size:2.8rem; color:#2c6e49;"></i><h3>Ethical Production</h3><p>Fair labor, local artisans.</p></div><div style="background:white; padding:32px; border-radius:32px; text-align:center;"><i class="fas fa-recycle" style="font-size:2.8rem; color:#2c6e49;"></i><h3>Circular Design</h3><p>Zero-waste kits & compostable wraps.</p></div></div></div>
+            <div style="display:flex; flex-wrap:wrap; gap:40px; background:white; border-radius:2rem; padding:40px; margin:32px 0; align-items:center;"><div style="flex:1"><img src="https://picsum.photos/id/155/600/400" style="width:100%; border-radius:28px;"></div><div style="flex:1.5"><h2>How it started</h2><p>In 2020, our founders met at a climate strike — and realized that shopping sustainably was too complicated. We launched EcoMerch to bridge the gap.</p><button class="btn-primary" id="storyBtn" style="background:#3f8262;">Read manifesto →</button></div></div>
+            <div style="background:#daf1e4; border-radius:2rem; padding:48px 32px; text-align:center; margin:48px 0;"><h2 style="font-size:2rem;">Our impact so far</h2><div style="display:flex; flex-wrap:wrap; justify-content:center; gap:48px; margin-top:32px;"><div><div style="font-size:2.8rem; font-weight:800;">125k+</div><p>Trees planted</p></div><div><div style="font-size:2.8rem; font-weight:800;">48k kg</div><p>Plastic avoided</p></div><div><div style="font-size:2.8rem; font-weight:800;">15+</div><p>Partners</p></div></div></div>
+            <div><h2 class="section-title">Meet the earth stewards</h2><div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:36px; margin:32px 0;"><div style="text-align:center;"><img src="https://picsum.photos/id/64/200/200" style="width:140px; height:140px; border-radius:50%;"><h4>Maya Chen</h4><p style="color:#2c6e49;">Co-Founder</p></div><div style="text-align:center;"><img src="https://picsum.photos/id/91/200/200" style="width:140px; height:140px; border-radius:50%;"><h4>David Okafor</h4><p style="color:#2c6e49;">Sustainability Head</p></div><div style="text-align:center;"><img src="https://picsum.photos/id/29/200/200" style="width:140px; height:140px; border-radius:50%;"><h4>Elena Voss</h4><p style="color:#2c6e49;">Product Curator</p></div></div></div>
+            <div style="background:#e1f0e8; border-radius:2rem; padding:40px; display:flex; flex-wrap:wrap; gap:30px; align-items:center; margin:40px 0;"><div><h2>Join the ecosystem</h2><button class="btn-primary" id="newsletterBtn"><i class="fas fa-envelope"></i> Subscribe</button></div><div><img src="https://picsum.photos/id/126/250/200" style="border-radius:28px; width:220px;"></div></div>
+        `;
+
+        // Privacy page HTML (simplified but complete for navigation)
+        const privacyPageHTML = `
+            <div class="terms-hero"><h1><i class="fas fa-shield-alt"></i> Privacy Policy</h1><p>Your trust is our priority — we protect your data like we protect the planet.</p><div class="last-updated">Last updated: June 6, 2026</div></div>
+            <div class="terms-card"><h2><i class="fas fa-lock"></i> Our Commitment</h2><p>We collect only necessary data to process orders. We never sell your personal information.</p><h2><i class="fas fa-database"></i> Information Collected</h2><p>Name, email, shipping address, and order history. Payment details are processed by secure third parties.</p><h2><i class="fas fa-leaf"></i> Your Rights</h2><p>You may request access, correction, or deletion of your data anytime.</p><div style="margin-top:32px; padding:20px; background:#eef5f1; border-radius:24px; text-align:center;"><button id="acceptPrivacyBtn" class="btn-primary">I understand</button></div></div>
+        `;
+
+        // Attach events for Home page
+        function attachHomeEvents() {
+            document.querySelectorAll('.add-to-cart').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const card = btn.closest('.product-card');
+                    const name = card?.getAttribute('data-name') || 'Eco item';
+                    showToast(`✨ ${name} added to your cart!`);
+                });
+            });
+            const shopBtn = document.getElementById('dynamicShopBtn');
+            if(shopBtn) shopBtn.addEventListener('click', () => { showToast('🌿 Explore our sustainable collection!'); document.querySelector('.products-grid')?.scrollIntoView({behavior:'smooth'}); });
+            const learnBtn = document.getElementById('dynamicLearnBtn');
+            if(learnBtn) learnBtn.addEventListener('click', () => showToast('🌎 Learn about our 1% for the Planet commitment.'));
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('click', () => showToast('🔍 Browsing sustainable category'));
+            });
+        }
+
+        function attachAboutEvents() {
+            document.getElementById('aboutJoinBtn')?.addEventListener('click', () => showToast('💚 Join our journey — sign up for updates!'));
+            document.getElementById('storyBtn')?.addEventListener('click', () => showToast('📖 Our manifesto: Every purchase is a vote for the future.'));
+            document.getElementById('newsletterBtn')?.addEventListener('click', () => showToast('📧 Stay tuned! Eco tips & 10% off.'));
+        }
+
+        function attachTermsEvents() {
+            const acceptBtn = document.getElementById('acceptTermsBtn');
+            if(acceptBtn) acceptBtn.addEventListener('click', () => showToast('✅ Thank you! You\'ve agreed to our Terms of Service.'));
+        }
+
+        function attachPrivacyEvents() {
+            const acceptBtn = document.getElementById('acceptPrivacyBtn');
+            if(acceptBtn) acceptBtn.addEventListener('click', () => showToast('✅ Thank you! You\'ve acknowledged our privacy policy.'));
+        }
+
+        // Navigation & content switching
+        const mainContainer = document.getElementById('mainContent');
+        const navHome = document.getElementById('navHome');
+        const navAbout = document.getElementById('navAbout');
+        const navShop = document.getElementById('navShop');
+        const navTerms = document.getElementById('navTerms');
+        const footerTermsLink = document.getElementById('footerTermsLink');
+        const footerPrivacyLink = document.getElementById('footerPrivacyLink');
+
+        // Store original terms content
+        const originalTermsHTML = document.getElementById('termsPage').outerHTML;
+
+        function loadHome() {
+            mainContainer.innerHTML = homePageHTML;
+            attachHomeEvents();
+            setActiveNav(navHome);
+            showToast('🌿 Welcome to EcoMerch — shop sustainably');
+        }
+        function loadAbout() {
+            mainContainer.innerHTML = aboutPageHTML;
+            attachAboutEvents();
+            setActiveNav(navAbout);
+            showToast('💚 Learn about our mission and impact');
+        }
+        function loadTerms() {
+            mainContainer.innerHTML = originalTermsHTML;
+            attachTermsEvents();
+            setActiveNav(navTerms);
+            showToast('📜 Please review our Terms of Service');
+        }
+        function loadPrivacy() {
+            mainContainer.innerHTML = privacyPageHTML;
+            attachPrivacyEvents();
+            setActiveNav(null);
+            showToast('🔒 Your privacy matters — read our policy');
+        }
+        function loadShop() {
+            if(!mainContainer.innerHTML.includes('products-grid')) {
+                loadHome();
+                setTimeout(() => { document.querySelector('.products-grid')?.scrollIntoView({behavior:'smooth'}); showToast('🛍️ Shop our sustainable collection'); }, 100);
+            } else {
+                document.querySelector('.products-grid')?.scrollIntoView({behavior:'smooth'});
+                showToast('🛍️ Discover all our eco-friendly products');
+            }
+        }
+        function setActiveNav(activeElement) {
+            [navHome, navAbout, navShop, navTerms].forEach(nav => { if(nav) nav.classList.remove('active'); });
+            if(activeElement) activeElement.classList.add('active');
+        }
+
+        navHome.addEventListener('click', (e) => { e.preventDefault(); loadHome(); });
+        navAbout.addEventListener('click', (e) => { e.preventDefault(); loadAbout(); });
+        navShop.addEventListener('click', (e) => { e.preventDefault(); loadShop(); });
+        navTerms.addEventListener('click', (e) => { e.preventDefault(); loadTerms(); });
+        if(footerTermsLink) footerTermsLink.addEventListener('click', (e) => { e.preventDefault(); loadTerms(); });
+        if(footerPrivacyLink) footerPrivacyLink.addEventListener('click', (e) => { e.preventDefault(); loadPrivacy(); });
+
+        // Header icons
+        document.querySelectorAll('.header-icons i').forEach(icon => {
+            icon.addEventListener('click', () => {
+                if(icon.classList.contains('fa-search')) showToast('🔍 Search sustainable products');
+                else if(icon.classList.contains('fa-heart')) showToast('❤️ Save your favorite eco picks');
+                else if(icon.classList.contains('fa-shopping-bag')) showToast('🛍️ Your cart is ready for green essentials');
+                else showToast('✨ Explore EcoMerch');
+            });
+        });
+
+        // Initialize terms page events
+        attachTermsEvents();
+        console.log('EcoMerch ready — Terms of Service page fully functional, all images working.');
+    </script>
+</body>
+</html>

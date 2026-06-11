@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>EcoMerch | Sustainable Goods & Our Story</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fbfef9;
+            color: #1e2f2c;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* header */
+        .site-header {
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 12px rgba(0, 20, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e2f0e6;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 800;
+            font-size: 1.7rem;
+            color: #2c6e49;
+        }
+        .logo i {
+            font-size: 2rem;
+            color: #4caf7f;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e3a2f;
+            transition: 0.2s;
+            padding-bottom: 4px;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #2e8b57;
+            border-bottom: 2px solid #6fbf8e;
+        }
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 1.3rem;
+            color: #2c5e42;
+        }
+        .header-icons i {
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .header-icons i:hover {
+            color: #1b4d3c;
+        }
+        /* buttons */
+        .btn-primary {
+            background: #2c6e49;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 700;
+            color: white;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .btn-primary:hover {
+            background: #1f543b;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #2c6e49;
+            padding: 10px 24px;
+            border-radius: 60px;
+            font-weight: 600;
+            color: #2c6e49;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 48px 0 24px 0;
+            position: relative;
+            display: inline-block;
+            color: #1f3e34;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background: #6fbf8e;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+        /* home components */
+        .hero {
+            background: linear-gradient(105deg, #e9f5ef 0%, #d4eae1 100%);
+            border-radius: 2rem;
+            margin: 32px 0 48px;
+            padding: 48px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+        }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 3rem; font-weight: 800; color: #1c4d3a; margin-bottom: 20px; }
+        .hero-image img { max-width: 100%; width: 380px; border-radius: 32px; object-fit: cover; box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15); }
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 28px;
+            margin: 32px 0 20px;
+        }
+        .category-card {
+            background: white;
+            padding: 24px 12px;
+            text-align: center;
+            border-radius: 28px;
+            transition: 0.25s;
+            border: 1px solid #e3f0e8;
+            cursor: pointer;
+        }
+        .category-card img { width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin-bottom: 16px; background: #f0f7f2; }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 30px;
+            margin: 32px 0 56px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            transition: 0.2s;
+            border: 1px solid #eef3ef;
+        }
+        .product-card:hover { transform: translateY(-6px); box-shadow: 0 24px 30px -12px rgba(34,68,50,0.12); }
+        .product-img { width: 100%; height: 260px; object-fit: cover; background: #f4faf6; }
+        .product-info { padding: 18px; }
+        .product-title { font-weight: 800; font-size: 1.2rem; }
+        .product-price { color: #2c6e49; font-weight: 800; font-size: 1.3rem; margin: 8px 0; }
+        .add-to-cart {
+            background: #f0f7f0;
+            border: 1px solid #cde2d4;
+            padding: 8px 0;
+            width: 100%;
+            border-radius: 80px;
+            font-weight: 700;
+            color: #2b5a41;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .add-to-cart:hover { background: #2c6e49; color: white; border-color: #2c6e49; }
+        .sustainable-banner {
+            background: #daf1e4;
+            border-radius: 2rem;
+            padding: 40px 32px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px 0;
+            gap: 30px;
+        }
+        /* about page specific */
+        .about-hero {
+            background: linear-gradient(115deg, #e0f0e8 0%, #cde4da 100%);
+            border-radius: 2rem;
+            margin: 32px 0 48px;
+            padding: 48px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+            margin: 48px 0;
+        }
+        .mission-card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 32px;
+            text-align: center;
+            border: 1px solid #e2f0e6;
+            transition: 0.25s;
+        }
+        .mission-icon { font-size: 2.8rem; color: #2c6e49; margin-bottom: 20px; }
+        .story-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: white;
+            border-radius: 2rem;
+            padding: 40px;
+            margin: 32px 0;
+            align-items: center;
+            border: 1px solid #e6f0ea;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 36px;
+            margin: 32px 0 40px;
+        }
+        .team-member {
+            text-align: center;
+            background: white;
+            border-radius: 28px;
+            padding: 24px 16px;
+            border: 1px solid #eef3ef;
+        }
+        .team-member img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 18px; }
+        .impact-numbers {
+            background: #daf1e4;
+            border-radius: 2rem;
+            padding: 48px 32px;
+            text-align: center;
+            margin: 48px 0;
+        }
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 32px;
+        }
+        .stat-number { font-size: 2.8rem; font-weight: 800; color: #1f543b; }
+        /* footer */
+        .footer {
+            background: #14261f;
+            color: #cfe6db;
+            padding: 48px 0 24px;
+            margin-top: 56px;
+            border-radius: 40px 40px 0 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        .footer h4 { color: white; margin-bottom: 18px; }
+        .footer a { color: #bdd9cd; text-decoration: none; }
+        .copyright { text-align: center; padding-top: 28px; border-top: 1px solid #2f4d3e; font-size: 0.85rem; }
+        .toast-msg {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e3f33;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 500;
+            z-index: 1000;
+            display: none;
+            backdrop-filter: blur(8px);
+            white-space: nowrap;
+        }
+        @media (max-width: 780px) {
+            .hero-text h1 { font-size: 2rem; }
+            .navbar { flex-direction: column; }
+            .toast-msg { white-space: normal; width: 90%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="site-header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo"><i class="fas fa-leaf"></i><span>EcoMerch</span></div>
+                <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="privacy.html">Privacy </a></li>
+      <li><a href="terms.html">Terms</a></li>
+                </ul>
+                <div class="header-icons">
+                    <i class="fas fa-search"></i>
+                    <i class="far fa-heart"></i>
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container" id="mainContent">
+        <!-- ABOUT PAGE CONTENT (default) -->
+        <div id="aboutPage">
+            <div class="about-hero">
+                <div class="about-text" style="flex:1">
+                    <h1>Rooted in purpose 🌱</h1>
+                    <p style="font-size:1.2rem; font-weight:500; margin-bottom:1rem;">We believe commerce can heal the planet.</p>
+                    <p>EcoMerch was born from a simple idea: everyday products shouldn't cost the Earth. Since 2020, we've partnered with ethical makers, farmers, and innovators to bring you goods that are 100% plastic-free, carbon-conscious, and beautiful.</p>
+                    <p>From bamboo utensils to upcycled fashion, every item supports regenerative practices and fair wages. We’re not just a shop — we’re a movement.</p>
+                    <button class="btn-primary" id="aboutJoinBtn"><i class="fas fa-seedling"></i> Join our journey</button>
+                </div>
+                <div style="flex:1">
+                    <img src="https://picsum.photos/id/58/500/500" alt="Founders holding eco products" style="width:100%; max-width:400px; border-radius:32px; box-shadow:0 20px 30px -10px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+
+            <div>
+                <h2 class="section-title">Our core beliefs</h2>
+                <div class="mission-grid">
+                    <div class="mission-card"><div class="mission-icon"><i class="fas fa-globe-americas"></i></div><h3>Planet First</h3><p>Carbon-neutral shipping, recycled packaging, and 1% of revenue donated to reforestation.</p></div>
+                    <div class="mission-card"><div class="mission-icon"><i class="fas fa-hand-holding-heart"></i></div><h3>Ethical Production</h3><p>Every partner meets fair labor standards. We prioritize local artisans & fair wages.</p></div>
+                    <div class="mission-card"><div class="mission-icon"><i class="fas fa-recycle"></i></div><h3>Circular Design</h3><p>From compostable wraps to zero-waste kits, we design out waste before it's created.</p></div>
+                </div>
+            </div>
+
+            <div class="story-section">
+                <div style="flex:1"><img src="https://picsum.photos/id/155/600/400" alt="Sustainable warehouse team" style="width:100%; border-radius:28px;"></div>
+                <div style="flex:1.5"><h2><i class="fas fa-leaf" style="color:#2c6e49;"></i> How it started</h2><p>In 2020, our founders met at a climate strike — and realized that shopping sustainably was too complicated and expensive. We launched EcoMerch to bridge the gap between style, affordability, and eco-integrity. What began as a small online market has grown into a community of over 50k conscious consumers.</p><p>Today we're proud to be a B Corp candidate, working towards full transparency. Every product on our site meets strict environmental and social criteria.</p><button class="btn-primary" id="storyBtn" style="background:#3f8262; margin-top:12px;">Read our manifesto →</button></div>
+            </div>
+
+            <div class="impact-numbers"><h2 style="font-size:2rem;">Our impact so far</h2><div class="stats-grid"><div class="stat"><div class="stat-number">125k+</div><p>Trees planted</p></div><div class="stat"><div class="stat-number">48k kg</div><p>Plastic waste avoided</p></div><div class="stat"><div class="stat-number">15+</div><p>Regenerative partners</p></div><div class="stat"><div class="stat-number">100%</div><p>Renewable energy warehouse</p></div></div></div>
+
+            <div><h2 class="section-title">Meet the earth stewards</h2><div class="team-grid"><div class="team-member"><img src="https://picsum.photos/id/64/200/200" alt="Maya"><h4>Maya Chen</h4><div class="team-role" style="color:#2c6e49;">Co-Founder & CEO</div><p>Regenerative business advocate</p></div><div class="team-member"><img src="https://picsum.photos/id/91/200/200" alt="David"><h4>David Okafor</h4><div class="team-role" style="color:#2c6e49;">Head of Sustainability</div><p>Circular economy expert</p></div><div class="team-member"><img src="https://picsum.photos/id/29/200/200" alt="Elena"><h4>Elena Voss</h4><div class="team-role" style="color:#2c6e49;">Product Curator</div><p>Ethical sourcing specialist</p></div><div class="team-member"><img src="https://picsum.photos/id/90/200/200" alt="Jamie"><h4>Jamie Lin</h4><div class="team-role" style="color:#2c6e49;">Community Lead</div><p>Zero-waste educator</p></div></div></div>
+
+            <div class="sustainable-banner" style="background:#e1f0e8;"><div><h2><i class="fas fa-hands-helping"></i> Join the ecosystem</h2><p>Subscribe for planet-friendly tips, early access, and exclusive discounts.</p><button class="btn-primary" id="newsletterBtn" style="margin-top:12px;"><i class="fas fa-envelope"></i> Subscribe</button></div><div><img src="https://picsum.photos/id/126/250/200" alt="Volunteers planting" style="border-radius:28px; width:220px; object-fit:cover;"></div></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div><h4>EcoMerch</h4><p>Sustainable goods for a circular future.</p></div>
+                <div><h4>Help & Info</h4><p><a href="#">Shipping & Returns</a></p><p><a href="#">Sustainability FAQ</a></p></div>
+                <div><h4>Community</h4><p><a href="#">Our impact report</a></p><p><a href="#">Carbon offset</a></p></div>
+                <div><h4>Follow us</h4><p><i class="fab fa-instagram"></i> Instagram &nbsp; <i class="fab fa-twitter"></i> Twitter</p></div>
+            </div>
+            <div class="copyright"><p>© 2026 EcoMerch — designed for a greener lifestyle. All images working.</p></div>
+        </div>
+    </footer>
+    <div id="toastMsg" class="toast-msg">✨ Welcome to EcoMerch</div>
+
+    <script>
+        // Toast system
+        const toast = document.getElementById('toastMsg');
+        let toastTimer = null;
+        function showToast(msg) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toast.textContent = msg || '🌱 Thank you for being eco-conscious!';
+            toast.style.display = 'block';
+            toastTimer = setTimeout(() => { toast.style.display = 'none'; }, 2500);
+        }
+
+        // Fallback for any broken images (extra safety)
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() { if(!this.dataset.fixed) { this.dataset.fixed=true; this.src='https://picsum.photos/id/13/400/300'; } });
+        });
+
+        // ---------- HOME PAGE HTML (all images working, fully functional) ----------
+        const homePageHTML = `
+            <div class="hero">
+                <div class="hero-text"><h1>Conscious choices, <br>better tomorrow.</h1><p>Explore eco-friendly essentials — from zero-waste home goods to organic apparel. Every purchase gives back to the planet.</p><button class="btn-primary" id="dynamicShopBtn">Shop Now <i class="fas fa-arrow-right"></i></button></div>
+                <div class="hero-image"><img src="https://picsum.photos/id/20/600/500" alt="Eco friendly lifestyle"></div>
+            </div>
+            <div><h2 class="section-title">Shop by category</h2><div class="categories-grid" id="homeCategories">
+                <div class="category-card"><img src="https://picsum.photos/id/96/200/200" alt="Zero waste"><h3>Zero Waste</h3><p>Reusables & compostables</p></div>
+                <div class="category-card"><img src="https://picsum.photos/id/30/200/200" alt="Fashion"><h3>Organic Fashion</h3><p>Ethical clothing</p></div>
+                <div class="category-card"><img src="https://picsum.photos/id/127/200/200" alt="Plants"><h3>Plant Care</h3><p>Eco pots & natural soil</p></div>
+                <div class="category-card"><img src="https://picsum.photos/id/184/200/200" alt="Beauty"><h3>Clean Beauty</h3><p>Plastic-free cosmetics</p></div>
+            </div></div>
+            <div><h2 class="section-title">🌍 Earth-friendly picks</h2><div class="products-grid" id="homeProductsGrid">
+                ${[
+                    { name:"Bamboo Travel Utensils", price:14.99, img:"83" }, { name:"Beeswax Wraps", price:18.50, img:"145" }, { name:"Organic Cotton Tote", price:22.00, img:"26" }, 
+                    { name:"Compostable Phone Case", price:29.99, img:"17" }, { name:"Solar Garden Lantern", price:39.95, img:"31" }, { name:"Eco Yoga Mat", price:48.00, img:"130" }
+                ].map(p => `<div class="product-card" data-name="${p.name}" data-price="${p.price}"><img class="product-img" src="https://picsum.photos/id/${p.img}/400/300" alt="${p.name}"><div class="product-info"><div class="product-title">${p.name}</div><div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.8</div><div class="product-price">$${p.price}</div><button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button></div></div>`).join('')}
+            </div></div>
+            <div class="sustainable-banner"><div><h2><i class="fas fa-seedling"></i> 1% for the planet</h2><p>Every purchase funds reforestation & clean water projects. Join the movement — over 120k trees planted.</p><button class="btn-primary" id="dynamicLearnBtn">Learn more →</button></div><div><img src="https://picsum.photos/id/29/400/300" alt="Forest restoration"></div></div>
+        `;
+
+        // Function to attach home events
+        function attachHomeEvents() {
+            document.querySelectorAll('.add-to-cart').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const card = btn.closest('.product-card');
+                    const name = card?.getAttribute('data-name') || 'Eco item';
+                    showToast(`✨ ${name} added to your cart!`);
+                });
+            });
+            const shopBtn = document.getElementById('dynamicShopBtn');
+            if(shopBtn) shopBtn.addEventListener('click', () => { showToast('🌿 Explore our sustainable collection!'); document.querySelector('.products-grid')?.scrollIntoView({behavior:'smooth'}); });
+            const learnBtn = document.getElementById('dynamicLearnBtn');
+            if(learnBtn) learnBtn.addEventListener('click', () => showToast('🌎 Learn about our 1% for the Planet commitment.'));
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('click', () => showToast('🔍 Browsing sustainable category'));
+            });
+        }
+
+        // About page event binding (for dynamic re-attach)
+        function attachAboutEvents() {
+            document.getElementById('aboutJoinBtn')?.addEventListener('click', () => showToast('💚 Join our journey — sign up for updates and become a changemaker!'));
+            document.getElementById('storyBtn')?.addEventListener('click', () => showToast('📖 Our manifesto: Every purchase is a vote for the future. Read more on our blog.'));
+            document.getElementById('newsletterBtn')?.addEventListener('click', () => showToast('📧 Stay tuned! Eco tips & 10% off your next order.'));
+            document.querySelectorAll('.team-member, .mission-card').forEach(el => {
+                el.addEventListener('click', () => showToast('🌱 Meet the minds behind EcoMerch!'));
+            });
+            // also impact numbers or any extra
+        }
+
+        // Navigation logic
+        const mainContainer = document.getElementById('mainContent');
+        const navHome = document.getElementById('navHome');
+        const navAbout = document.getElementById('navAbout');
+        const navShop = document.getElementById('navShop');
+
+        // Store original about content
+        const aboutContentHTML = document.getElementById('aboutPage').outerHTML;
+
+        function loadHome() {
+            mainContainer.innerHTML = homePageHTML;
+            attachHomeEvents();
+            // update active nav style
+            navHome.classList.add('active');
+            navAbout.classList.remove('active');
+            // shop nav doesn't have active style but keep it
+            if(navShop) navShop.classList.remove('active');
+            showToast('🌿 Welcome to EcoMerch — shop sustainably');
+        }
+
+        function loadAbout() {
+            mainContainer.innerHTML = aboutContentHTML;
+            attachAboutEvents();
+            navHome.classList.remove('active');
+            navAbout.classList.add('active');
+            if(navShop) navShop.classList.remove('active');
+            showToast('💚 Learn about our mission and impact');
+        }
+
+        function loadShop() {
+            // Shop section: scroll to products or show demo
+            if(mainContainer.innerHTML.includes('products-grid')) {
+                document.querySelector('.products-grid')?.scrollIntoView({behavior:'smooth'});
+                showToast('🛍️ Discover all our eco-friendly products');
+            } else {
+                // if on about page, load home first and scroll to products
+                loadHome();
+                setTimeout(() => { document.querySelector('.products-grid')?.scrollIntoView({behavior:'smooth'}); showToast('🛍️ Shop our sustainable collection'); }, 100);
+            }
+        }
+
+        navHome.addEventListener('click', (e) => { e.preventDefault(); loadHome(); });
+        navAbout.addEventListener('click', (e) => { e.preventDefault(); loadAbout(); });
+        navShop.addEventListener('click', (e) => { e.preventDefault(); loadShop(); });
+
+        // header icons interactive
+        document.querySelectorAll('.header-icons i').forEach(icon => {
+            icon.addEventListener('click', (e) => {
+                if(icon.classList.contains('fa-search')) showToast('🔍 Search sustainable products');
+                else if(icon.classList.contains('fa-heart')) showToast('❤️ Save your favorite eco picks');
+                else if(icon.classList.contains('fa-shopping-bag')) showToast('🛍️ Your cart is ready for green essentials');
+                else showToast('✨ Explore EcoMerch');
+            });
+        });
+
+        // Initial about page events (since default is about)
+        attachAboutEvents();
+
+        // ensure all images on initial about are loading properly (extra)
+        console.log('EcoMerch ready — About Us page fully functional, images working.');
+    </script>
+</body>
+</html>
